@@ -1,12 +1,12 @@
 {
   "launchDate": "2026-07-15T09:00:00",
-  "updatedAt": "2026-06-03T13:22:11.116Z",
+  "updatedAt": "2026-06-03T13:29:41.705Z",
   "sourceSheet": "Weekly Check-list",
   "months": [
     {
-      "name": "Chưa xác định",
-      "themeColor": "from-slate-500 to-slate-700",
-      "badgeColor": "text-slate-600 bg-slate-50",
+      "name": "Tháng 6",
+      "themeColor": "from-emerald-500 to-teal-600",
+      "badgeColor": "text-emerald-600 bg-emerald-50",
       "weeks": [
         {
           "id": "W2",
