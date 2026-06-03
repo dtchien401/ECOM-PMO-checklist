@@ -61,32 +61,32 @@
 <body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased animate-fade-in">
 
     <!-- TOP HEADER BAR -->
-    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+    <header class="bg-white/95 text-slate-900 sticky top-0 z-50 shadow-sm border-b border-slate-200 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2.5 rounded-xl shadow-lg shadow-indigo-500/30">
                     <i class="fa-solid fa-chart-line text-xl text-white"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">ROADMAP STELLA & BELL</h1>
-                    <p class="text-xs text-slate-400 font-medium">Bản Đồ Chiến Lược Triển Khai Thực Tế (Data-Driven)</p>
+                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">ROADMAP STELLA & BELL</h1>
+                    <p class="text-xs text-slate-500 font-medium">Bản Đồ Chiến Lược Triển Khai Thực Tế (Data-Driven)</p>
                 </div>
             </div>
             
             <!-- Launching Countdown Widget -->
-            <div class="hidden md:flex items-center space-x-4 bg-slate-800/80 border border-slate-700/60 px-4 py-2 rounded-xl">
+            <div class="hidden md:flex items-center space-x-4 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
                 <div class="text-right">
-                    <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Thời gian đến Ngày Launching</span>
+                    <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Thời gian đến Ngày Launching</span>
                     <span class="text-xs text-brand-growth font-semibold"><i class="fa-solid fa-rocket mr-1"></i> Mục tiêu: <span id="target-launch-label">15/07/2026</span></span>
                 </div>
                 <div class="flex space-x-2 text-center" id="countdown">
-                    <div class="bg-slate-950 px-2.5 py-1 rounded-md min-w-[36px]">
-                        <span id="cd-days" class="font-bold text-white text-sm">--</span>
-                        <span class="block text-[8px] text-slate-400">Ngày</span>
+                    <div class="bg-white border border-slate-200 px-2.5 py-1 rounded-md min-w-[36px] shadow-sm">
+                        <span id="cd-days" class="font-bold text-slate-900 text-sm">--</span>
+                        <span class="block text-[8px] text-slate-500">Ngày</span>
                     </div>
-                    <div class="bg-slate-950 px-2.5 py-1 rounded-md min-w-[36px]">
-                        <span id="cd-hours" class="font-bold text-white text-sm">--</span>
-                        <span class="block text-[8px] text-slate-400">Giờ</span>
+                    <div class="bg-white border border-slate-200 px-2.5 py-1 rounded-md min-w-[36px] shadow-sm">
+                        <span id="cd-hours" class="font-bold text-slate-900 text-sm">--</span>
+                        <span class="block text-[8px] text-slate-500">Giờ</span>
                     </div>
                 </div>
             </div>
@@ -149,32 +149,32 @@
         </div>
 
         <!-- SECTION: THÔNG TIN CHI TIẾT VỀ NHÂN SỰ PHÂN NHIỆM -->
-        <div class="mt-12 bg-slate-900 text-white rounded-2xl p-6 shadow-lg border border-slate-800">
-            <h4 class="font-bold text-sm tracking-widest text-slate-400 uppercase mb-4"><i class="fa-solid fa-users mr-2 text-indigo-400"></i>Danh sách phân nhiệm phòng ban</h4>
+        <div class="mt-12 bg-white text-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200">
+            <h4 class="font-bold text-sm tracking-widest text-slate-500 uppercase mb-4"><i class="fa-solid fa-users mr-2 text-indigo-400"></i>Danh sách phân nhiệm phòng ban</h4>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/40">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-foundation"></span>
                         <h5 class="font-bold text-xs text-emerald-400 uppercase">Team Foundation</h5>
                     </div>
                     <p class="text-sm font-semibold">Stella & Bell + A.Hải</p>
-                    <p class="text-xs text-slate-400 mt-1">Phụ trách khung sản phẩm pháp lý, bảng giá và căn chỉnh nghiệp vụ O2O.</p>
+                    <p class="text-xs text-slate-500 mt-1">Phụ trách khung sản phẩm pháp lý, bảng giá và căn chỉnh nghiệp vụ O2O.</p>
                 </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/40">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-setup"></span>
                         <h5 class="font-bold text-xs text-blue-400 uppercase">Team Set Up (IT, Ops, MS, DS)</h5>
                     </div>
                     <p class="text-sm font-semibold">Bell + A.Hải + DS & MS + Stella</p>
-                    <p class="text-xs text-slate-400 mt-1">Phụ trách thiết kế UI/UX, code Frontend & Backend, tích hợp hệ thống & theo dõi vận hành kỹ thuật.</p>
+                    <p class="text-xs text-slate-500 mt-1">Phụ trách thiết kế UI/UX, code Frontend & Backend, tích hợp hệ thống & theo dõi vận hành kỹ thuật.</p>
                 </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/40">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-growth"></span>
                         <h5 class="font-bold text-xs text-amber-400 uppercase">Team Truyền thông / Growth (MKT)</h5>
                     </div>
                     <p class="text-sm font-semibold">Thuỷ, Nelly, Cường</p>
-                    <p class="text-xs text-slate-400 mt-1">Phụ trách hoạch định ngân sách digital, kế hoạch ra mắt thị trường, truyền thông tích hợp & Affiliate.</p>
+                    <p class="text-xs text-slate-500 mt-1">Phụ trách hoạch định ngân sách digital, kế hoạch ra mắt thị trường, truyền thông tích hợp & Affiliate.</p>
                 </div>
             </div>
         </div>
@@ -332,14 +332,14 @@
                     week.tasks.forEach(task => {
                         const isHighlight = task.isHighlight;
                         const bgColors = isHighlight 
-                            ? 'bg-slate-800 border-l-4 border-rose-500 text-white'
+                            ? 'bg-rose-50 border-l-4 border-rose-400 text-slate-900'
                             : {
                                 foundation: 'border-l-4 border-brand-foundation bg-emerald-50/20',
                                 setup: 'border-l-4 border-brand-setup bg-blue-50/20',
                                 growth: 'border-l-4 border-brand-growth bg-amber-50/20'
                               }[task.team];
 
-                        const headingColor = isHighlight ? 'text-white' : 'text-slate-800';
+                        const headingColor = isHighlight ? 'text-slate-900' : 'text-slate-800';
                         const badgeText = {
                             foundation: 'Foundation',
                             setup: 'Set Up',
@@ -370,7 +370,7 @@
                                 </div>
                                 ${deadlineHTML}
                                 <p class="text-xs ${isHighlight ? 'font-extrabold' : 'font-semibold'} ${headingColor} mt-1">${task.title}</p>
-                                ${task.desc ? `<p class="text-[11px] ${isHighlight ? 'text-slate-300' : 'text-slate-500'} mt-1">${iconHTML}${task.desc}</p>` : ''}
+                                ${task.desc ? `<p class="text-[11px] ${isHighlight ? 'text-slate-600' : 'text-slate-500'} mt-1">${iconHTML}${task.desc}</p>` : ''}
                             </div>
                         `;
                         globalTaskIndex++;
@@ -378,19 +378,19 @@
 
                     const isLaunchWeek = week.tasks.some(t => t.isHighlight);
                     const weekCardStyles = isLaunchWeek
-                        ? 'bg-slate-900 text-white border-2 border-indigo-500 shadow-xl shadow-indigo-500/10 p-5 flex flex-col justify-between transform lg:-translate-y-2 relative overflow-hidden'
+                        ? 'bg-indigo-50 text-slate-900 border-2 border-indigo-200 shadow-md shadow-indigo-100 p-5 flex flex-col justify-between transform lg:-translate-y-2 relative overflow-hidden'
                         : 'bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between';
 
                     const weekHeaderGlow = isLaunchWeek 
-                        ? '<div class="absolute -top-12 -right-12 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl pointer-events-none"></div>'
+                        ? '<div class="absolute -top-12 -right-12 w-24 h-24 bg-indigo-200/60 rounded-full blur-xl pointer-events-none"></div>'
                         : '';
 
                     const weekHeaderTag = isLaunchWeek 
-                        ? `<span class="text-[10px] text-indigo-300 font-extrabold uppercase tracking-widest bg-indigo-500/20 px-2 py-0.5 rounded">Tuần 3 - Go-Live!</span>`
+                        ? `<span class="text-[10px] text-indigo-700 font-extrabold uppercase tracking-widest bg-indigo-100 px-2 py-0.5 rounded">Tuần 3 - Go-Live!</span>`
                         : `<span class="text-[10px] ${month.badgeColor} font-extrabold uppercase tracking-widest px-2 py-0.5 rounded">${week.id}</span>`;
 
                     const weekIdBadge = isLaunchWeek
-                        ? `<span class="text-xs text-indigo-300 bg-indigo-500/20 px-2 py-1 rounded font-medium"><i class="fa-solid fa-star text-amber-400"></i> ${week.id}</span>`
+                        ? `<span class="text-xs text-indigo-700 bg-white border border-indigo-100 px-2 py-1 rounded font-medium"><i class="fa-solid fa-star text-amber-400"></i> ${week.id}</span>`
                         : `<span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>${week.id}</span>`;
 
                     weeksHTML += `
@@ -443,7 +443,7 @@
             const distance = finalLaunchTime - now;
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = `<span class="text-emerald-500 font-bold text-xs uppercase tracking-wider"><i class="fa-solid fa-circle-check mr-1"></i>Đã ra mắt thành công!</span>`;
+                document.getElementById('countdown').innerHTML = `<span class="text-emerald-600 font-bold text-xs uppercase tracking-wider"><i class="fa-solid fa-circle-check mr-1"></i>Đã ra mắt thành công!</span>`;
                 return;
             }
 
