@@ -1,0 +1,20 @@
+﻿Month,Week,Foundation,Set Up,Growth
+JUN,W1 01/06 - 07/06,"Phạm vi MVP
+Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.","4.6: IT action list theo requirement của 21.5
+Sitemap và cấu trúc trang",
+JUN,W2 08/06 - 14/06,"10.6 Bộ khung sản phẩm phase 1 và phase 2.
+Danh sách tính năng front-end, back-end, admin portal và tracking requirement.","12.6 UI/UX, prototype Figma, nội dung sản phẩm, FAQ, hướng dẫn mua hàng
+Onboarding material.
+Customer Journey,","Chốt ngân sách digital, phân bổ kênh O2O và định hướng lead generation phase 1."
+JUN,W3 15/06 - 21/06,"Bảng giá, mô hình khuyến mãi",Bắt đầu set up front-end và back-end,"Chốt communication direction, key message, channel role và kế hoạch truyền thông tổng thể
+(under việc truyền thông thay đổi mô hình bán hàng)"
+JUN,W4 22/06 - 28/06,"Service alignment O2O / Ops:
++ Quy trình kích hoạt quyền lợi
++ CLB tiếp nhận khách mua online, booking trên App / Kiosk và Online Service SOP",Hoàn tất set up front-end & back-end,
+JUL,W1 29/06 - 05/07,,1.7 Test end-to end flow,"Chuẩn bị teasing plan, soft launch communication plan và training đội Online Service."
+JUL,W2 06/07 - 12/07,Training cho nhóm tư vấn viên online,"Hoàn tất bug fixing, tracking final, report dashboard","Teasing truyền thông.
+Sẵn sàng các key asset truyèn thông trên owned channel"
+JUL,W3 13/07 - 19/07,,"Theo dõi hệ thống, payment, CRM sync, activation, booking và report hằng ngày.
+Kết nối API với các trang affiliate","15/07 Launching
+Theo dõi traffic, lead, order, payment, conversion, bug và customer feedback."
+JUL,W4 20/07 - 26/07,,"Tối ưu bug minor, UX issue, tracking issue và report issue sau launch.",Launching affiliate qua agency
