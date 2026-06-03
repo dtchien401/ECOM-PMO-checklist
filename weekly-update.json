@@ -1,194 +1,173 @@
 {
-  "updatedAt": "2026-06-03T12:47:16.854Z",
+  "launchDate": "2026-07-15T09:00:00",
+  "updatedAt": "2026-06-03T13:22:11.116Z",
   "sourceSheet": "Weekly Check-list",
-  "totalTasks": 17,
-  "tasks": [
+  "months": [
     {
-      "month": "",
-      "week": "W2",
-      "weekStart": "08/06",
-      "weekEnd": "14/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "10.6 Bộ khung sản phẩm phase 1 và phase 2.",
-      "status": "Not Started",
-      "note": ""
+      "name": "Chưa xác định",
+      "themeColor": "from-slate-500 to-slate-700",
+      "badgeColor": "text-slate-600 bg-slate-50",
+      "weeks": [
+        {
+          "id": "W2",
+          "dates": "08/06 - 14/06",
+          "tasks": [
+            {
+              "team": "foundation",
+              "title": "Bộ khung sản phẩm phase 1 và phase 2.",
+              "desc": "Danh sách tính năng front-end, back-end, admin portal và tracking requirement.",
+              "deadline": "10.6"
+            },
+            {
+              "team": "setup",
+              "title": "UI/UX, prototype Figma, nội dung sản phẩm, FAQ, hướng dẫn mua hàng",
+              "desc": "Onboarding material. Customer Journey,",
+              "deadline": "12.6"
+            },
+            {
+              "team": "growth",
+              "title": "Chốt ngân sách digital, phân bổ kênh O2O và định hướng lead generation phase 1.",
+              "desc": "",
+              "deadline": ""
+            }
+          ]
+        },
+        {
+          "id": "W3",
+          "dates": "15/06 - 21/06",
+          "tasks": [
+            {
+              "team": "foundation",
+              "title": "Bảng giá, mô hình khuyến mãi",
+              "desc": "",
+              "deadline": ""
+            },
+            {
+              "team": "setup",
+              "title": "Bắt đầu set up front-end và back-end",
+              "desc": "",
+              "deadline": ""
+            },
+            {
+              "team": "growth",
+              "title": "Chốt communication direction, key message, channel role và kế hoạch truyền thông tổng thể",
+              "desc": "(under việc truyền thông thay đổi mô hình bán hàng)",
+              "deadline": ""
+            }
+          ]
+        },
+        {
+          "id": "W4",
+          "dates": "22/06 - 28/06",
+          "tasks": [
+            {
+              "team": "foundation",
+              "title": "Service alignment O2O / Ops:",
+              "desc": "+ Quy trình kích hoạt quyền lợi + CLB tiếp nhận khách mua online, booking trên App / Kiosk và Online Service SOP",
+              "deadline": ""
+            },
+            {
+              "team": "setup",
+              "title": "Hoàn tất set up front-end & back-end",
+              "desc": "",
+              "deadline": ""
+            }
+          ]
+        }
+      ]
     },
     {
-      "month": "",
-      "week": "W2",
-      "weekStart": "08/06",
-      "weekEnd": "14/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "Danh sách tính năng front-end, back-end, admin portal và tracking requirement.",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W2",
-      "weekStart": "08/06",
-      "weekEnd": "14/06",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "12.6 UI/UX, prototype Figma, nội dung sản phẩm, FAQ, hướng dẫn mua hàng",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W2",
-      "weekStart": "08/06",
-      "weekEnd": "14/06",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Onboarding material.",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W2",
-      "weekStart": "08/06",
-      "weekEnd": "14/06",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Customer Journey,",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W3",
-      "weekStart": "15/06",
-      "weekEnd": "21/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "Bảng giá, mô hình khuyến mãi",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W3",
-      "weekStart": "15/06",
-      "weekEnd": "21/06",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Bắt đầu set up front-end và back-end",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W4",
-      "weekStart": "22/06",
-      "weekEnd": "28/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "Service alignment O2O / Ops:",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W4",
-      "weekStart": "22/06",
-      "weekEnd": "28/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "+ Quy trình kích hoạt quyền lợi",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W4",
-      "weekStart": "22/06",
-      "weekEnd": "28/06",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "+ CLB tiếp nhận khách mua online, booking trên App / Kiosk và Online Service SOP",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "",
-      "week": "W4",
-      "weekStart": "22/06",
-      "weekEnd": "28/06",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Hoàn tất set up front-end & back-end",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W1",
-      "weekStart": "29/06",
-      "weekEnd": "05/07",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "1.7 Test end-to end flow",
-      "status": "In Progress",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W2",
-      "weekStart": "06/07",
-      "weekEnd": "12/07",
-      "workstream": "Phạm vi MVP",
-      "owner": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
-      "task": "Training cho nhóm tư vấn viên online",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W2",
-      "weekStart": "06/07",
-      "weekEnd": "12/07",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Hoàn tất bug fixing, tracking final, report dashboard",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W3",
-      "weekStart": "13/07",
-      "weekEnd": "19/07",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Theo dõi hệ thống, payment, CRM sync, activation, booking và report hằng ngày.",
-      "status": "In Progress",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W3",
-      "weekStart": "13/07",
-      "weekEnd": "19/07",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Kết nối API với các trang affiliate",
-      "status": "Not Started",
-      "note": ""
-    },
-    {
-      "month": "JUL",
-      "week": "W4",
-      "weekStart": "20/07",
-      "weekEnd": "26/07",
-      "workstream": "4.6: IT action list theo requirement của 21.5",
-      "owner": "Sitemap và cấu trúc trang",
-      "task": "Tối ưu bug minor, UX issue, tracking issue và report issue sau launch.",
-      "status": "In Progress",
-      "note": ""
+      "name": "Tháng 7",
+      "themeColor": "from-blue-500 to-indigo-600",
+      "badgeColor": "text-blue-600 bg-blue-50",
+      "weeks": [
+        {
+          "id": "W1",
+          "dates": "29/06 - 05/07",
+          "tasks": [
+            {
+              "team": "setup",
+              "title": "Test end-to end flow",
+              "desc": "",
+              "deadline": "1.7"
+            },
+            {
+              "team": "growth",
+              "title": "Chuẩn bị teasing plan, soft launch communication plan và training đội Online Service.",
+              "desc": "",
+              "deadline": "",
+              "icon": "fa-solid fa-rocket animate-bounce",
+              "isHighlight": true
+            }
+          ]
+        },
+        {
+          "id": "W2",
+          "dates": "06/07 - 12/07",
+          "tasks": [
+            {
+              "team": "foundation",
+              "title": "Training cho nhóm tư vấn viên online",
+              "desc": "",
+              "deadline": ""
+            },
+            {
+              "team": "setup",
+              "title": "Hoàn tất bug fixing, tracking final, report dashboard",
+              "desc": "",
+              "deadline": ""
+            },
+            {
+              "team": "growth",
+              "title": "Teasing truyền thông.",
+              "desc": "Sẵn sàng các key asset truyèn thông trên owned channel",
+              "deadline": ""
+            }
+          ]
+        },
+        {
+          "id": "W3",
+          "dates": "13/07 - 19/07",
+          "tasks": [
+            {
+              "team": "setup",
+              "title": "Theo dõi hệ thống, payment, CRM sync, activation, booking và report hằng ngày.",
+              "desc": "Kết nối API với các trang affiliate",
+              "deadline": ""
+            },
+            {
+              "team": "growth",
+              "title": "Launching",
+              "desc": "Theo dõi traffic, lead, order, payment, conversion, bug và customer feedback.",
+              "deadline": "15/07",
+              "icon": "fa-solid fa-rocket animate-bounce",
+              "isHighlight": true
+            }
+          ]
+        },
+        {
+          "id": "W4",
+          "dates": "20/07 - 26/07",
+          "tasks": [
+            {
+              "team": "setup",
+              "title": "Tối ưu bug minor, UX issue, tracking issue và report issue sau launch.",
+              "desc": "",
+              "deadline": "",
+              "icon": "fa-solid fa-rocket animate-bounce",
+              "isHighlight": true
+            },
+            {
+              "team": "growth",
+              "title": "Launching affiliate qua agency",
+              "desc": "",
+              "deadline": "",
+              "icon": "fa-solid fa-rocket animate-bounce",
+              "isHighlight": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
