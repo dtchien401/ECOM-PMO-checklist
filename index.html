@@ -58,7 +58,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased">
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased animate-fade-in">
 
     <!-- TOP HEADER BAR -->
     <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <h1 class="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">ROADMAP STELLA & BELL</h1>
-                    <p class="text-xs text-slate-400 font-medium">Bản Đồ Chiến Lược Triển Khai Thực Tế</p>
+                    <p class="text-xs text-slate-400 font-medium">Bản Đồ Chiến Lược Triển Khai Thực Tế (Data-Driven)</p>
                 </div>
             </div>
             
@@ -77,7 +77,7 @@
             <div class="hidden md:flex items-center space-x-4 bg-slate-800/80 border border-slate-700/60 px-4 py-2 rounded-xl">
                 <div class="text-right">
                     <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Thời gian đến Ngày Launching</span>
-                    <span class="text-xs text-brand-growth font-semibold"><i class="fa-solid fa-rocket mr-1"></i> Mục tiêu: 15/07/2026</span>
+                    <span class="text-xs text-brand-growth font-semibold"><i class="fa-solid fa-rocket mr-1"></i> Mục tiêu: <span id="target-launch-label">15/07/2026</span></span>
                 </div>
                 <div class="flex space-x-2 text-center" id="countdown">
                     <div class="bg-slate-950 px-2.5 py-1 rounded-md min-w-[36px]">
@@ -111,7 +111,7 @@
                     <div class="flex space-x-4 mt-2 text-xs text-slate-500">
                         <span><span id="tasks-done" class="font-semibold text-slate-800">0</span>/<span id="tasks-total" class="font-semibold text-slate-800">0</span> Đầu việc hoàn thành</span>
                         <span>•</span>
-                        <span id="system-time" class="text-slate-400"><i class="fa-regular fa-clock mr-1"></i>Cập nhật: Hôm nay</span>
+                        <span id="system-time" class="text-slate-400"><i class="fa-regular fa-clock mr-1"></i>Đang tải dữ liệu...</span>
                     </div>
                 </div>
 
@@ -134,339 +134,18 @@
             </div>
         </div>
 
-        <!-- PHÂN PHỐI DÒNG THỜI GIAN THEO THÁNG (TIMELINE ROADMAP) -->
-        <div class="space-y-12">
-            
-            <!-- THÁNG 6: PHÁT TRIỂN & CHUẨN BỊ -->
-            <section class="relative">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm shadow-emerald-500/20">Tháng 6</div>
-                    <div class="h-[1px] bg-slate-200 flex-1"></div>
+        <!-- NOTIFICATION / SOURCE ALERT -->
+        <div id="data-source-badge" class="mb-6 hidden px-4 py-2.5 rounded-xl text-xs font-medium border"></div>
+
+        <!-- CONTAINER DỮ LIỆU ĐỘNG (DÒNG THỜI GIAN THEO THÁNG) -->
+        <div id="dynamic-timeline" class="space-y-12">
+            <!-- JS Render các tháng và các tuần ở đây -->
+            <div class="flex justify-center py-12">
+                <div class="flex items-center space-x-2 text-slate-500">
+                    <i class="fa-solid fa-circle-notch animate-spin text-xl text-indigo-500"></i>
+                    <span>Đang khởi tạo dòng thời gian...</span>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- TUẦN 1 (THÁNG 6) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-emerald-600 font-extrabold uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded">Tuần 1</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">01/06 - 07/06</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W1</span>
-                            </div>
-                            
-                            <!-- Công việc bên trong tuần -->
-                            <div class="space-y-3">
-                                <!-- Thẻ task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-foundation bg-emerald-50/20" data-team="foundation">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-foundation uppercase tracking-wider">Foundation</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Xác định Phạm vi MVP</p>
-                                    <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-scale-balanced mr-1"></i>Legal check: TMĐT, khuyến mãi, bán hàng vật lý</p>
-                                </div>
-                                <!-- Thẻ task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <div class="flex items-center gap-1 mt-1 text-[11px] text-rose-600 font-bold"><i class="fa-solid fa-clock"></i> DL: 04.06</div>
-                                    <p class="text-xs text-slate-700 font-medium">IT action list theo requirement của 21.5</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Xây dựng Sitemap và cấu trúc trang web</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 2 (THÁNG 6) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-emerald-600 font-extrabold uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded">Tuần 2</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">08/06 - 14/06</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W2</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-foundation bg-emerald-50/20" data-team="foundation">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-foundation uppercase tracking-wider">Foundation</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <div class="flex items-center gap-1 mt-1 text-[11px] text-rose-600 font-bold"><i class="fa-solid fa-clock"></i> DL: 10.06</div>
-                                    <p class="text-xs text-slate-700 font-semibold">Bộ khung sản phẩm phase 1 & 2</p>
-                                    <p class="text-[11px] text-slate-500 mt-1">Danh sách tính năng FE/BE, portal quản trị & tracking</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <div class="flex items-center gap-1 mt-1 text-[11px] text-rose-600 font-bold"><i class="fa-solid fa-clock"></i> DL: 12.06</div>
-                                    <p class="text-xs text-slate-700 font-medium">UI/UX, prototype Figma & Content</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Tạo tài liệu onboarding, Customer Journey, FAQ</p>
-                                </div>
-                                <!-- Task 3 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-growth bg-amber-50/20" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-growth uppercase tracking-wider">Growth</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Chốt ngân sách digital</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Phân bổ kênh O2O & định hướng lead gen phase 1</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 3 (THÁNG 6) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-emerald-600 font-extrabold uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded">Tuần 3</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">15/06 - 21/06</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W3</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-foundation bg-emerald-50/20" data-team="foundation">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-foundation uppercase tracking-wider">Foundation</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Chốt bảng giá & Mô hình KM</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Bắt đầu Coding Front-end & Back-end</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Triển khai code khung hạ tầng</p>
-                                </div>
-                                <!-- Task 3 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-growth bg-amber-50/20" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-growth uppercase tracking-wider">Growth</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Chốt Định hướng truyền thông chính</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Key message, vai trò của kênh & kế hoạch tổng thể</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 4 (THÁNG 6) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-emerald-600 font-extrabold uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded">Tuần 4</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">22/06 - 28/06</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W4</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-foundation bg-emerald-50/20" data-team="foundation">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-foundation uppercase tracking-wider">Foundation</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Đồng bộ nghiệp vụ O2O & Ops</p>
-                                    <p class="text-[11px] text-slate-500 mt-1">• Quy trình kích hoạt quyền lợi<br>• CLB tiếp nhận khách online, Kiosk & SOP</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Hoàn thiện Set up Front-end & Back-end</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Sẵn sàng để đưa vào môi trường test</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- THÁNG 7: TEST & GO-LIVE -->
-            <section class="relative">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm shadow-indigo-500/20">Tháng 7</div>
-                    <div class="h-[1px] bg-slate-200 flex-1"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- TUẦN 1 (THÁNG 7) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-blue-600 font-extrabold uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded">Tuần 1</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">29/06 - 05/07</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W1</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <div class="flex items-center gap-1 mt-1 text-[11px] text-rose-600 font-bold"><i class="fa-solid fa-circle-exclamation animate-pulse"></i> DL: 01.07</div>
-                                    <p class="text-xs text-slate-700 font-bold">Kiểm thử toàn diện End-to-End</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Test thử quy trình mua hàng đến kích hoạt</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-growth bg-amber-50/20" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-growth uppercase tracking-wider">Growth</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Kế hoạch Teasing & Soft Launch</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Lên kế hoạch truyền thông và đào tạo Team Online Service</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 2 (THÁNG 7) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-blue-600 font-extrabold uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded">Tuần 2</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">06/07 - 12/07</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W2</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-foundation bg-emerald-50/20" data-team="foundation">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-foundation uppercase tracking-wider">Foundation</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Đào tạo đội ngũ tư vấn viên</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Hướng dẫn tư vấn trực tuyến và kịch bản CSKH</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Fix lỗi và hoàn thiện Report</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Nghiệm thu bug-fixing, tracking cuối và dựng Dashboard báo cáo</p>
-                                </div>
-                                <!-- Task 3 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-growth bg-amber-50/20" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-growth uppercase tracking-wider">Growth</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Chiến dịch Teasing Truyền thông</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Đưa các ấn phẩm truyền thông lên các kênh chính thức sở hữu (owned channels)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 3 (THÁNG 7) - TUẦN CHỦ CHỐT -->
-                    <div class="bg-slate-900 text-white rounded-2xl border-2 border-indigo-500 shadow-xl shadow-indigo-500/10 p-5 flex flex-col justify-between transform lg:-translate-y-2 relative overflow-hidden">
-                        <!-- Background glow effect -->
-                        <div class="absolute -top-12 -right-12 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl pointer-events-none"></div>
-                        
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-indigo-300 font-extrabold uppercase tracking-widest bg-indigo-500/20 px-2 py-0.5 rounded">Tuần 3 - Go-Live!</span>
-                                    <h3 class="font-bold text-white text-base mt-1">13/07 - 19/07</h3>
-                                </div>
-                                <span class="text-xs text-indigo-300 bg-indigo-500/20 px-2 py-1 rounded font-medium"><i class="fa-solid fa-star text-amber-400"></i> W3</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl bg-slate-800 border-l-4 border-brand-setup" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">IT & Ops Operations</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-200 font-medium mt-1">Hệ thống & Tích hợp</p>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Theo dõi Payment, CRM Sync, kích hoạt, kết nối API Affiliate</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl bg-gradient-to-r from-rose-950 to-slate-800 border-l-4 border-rose-500" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-rose-400 uppercase tracking-wider">LAUNCHING EVENT</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-rose-500 focus:ring-rose-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <div class="flex items-center gap-1 mt-1 text-[11px] text-rose-400 font-bold"><i class="fa-solid fa-rocket animate-bounce"></i> Ngày vàng: 15/07</div>
-                                    <p class="text-xs text-white font-extrabold">CHÍNH THỨC PHÁT HÀNH DỰ ÁN</p>
-                                    <p class="text-[11px] text-slate-300 mt-0.5">Theo dõi liên tục: Traffic, lead, order, conversion, bug và phản hồi KH</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TUẦN 4 (THÁNG 7) -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-[10px] text-blue-600 font-extrabold uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded">Tuần 4</span>
-                                    <h3 class="font-bold text-slate-800 text-base mt-1">20/07 - 26/07</h3>
-                                </div>
-                                <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>W4</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <!-- Task 1 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-setup bg-blue-50/20" data-team="setup">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-setup uppercase tracking-wider">Set Up</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Tối ưu hóa sau vận hành</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Sửa các bug nhỏ, cải tiến UI/UX, xử lý tracking & report lỗi sau launch</p>
-                                </div>
-                                <!-- Task 2 -->
-                                <div class="task-card p-3 rounded-xl border-l-4 border-brand-growth bg-amber-50/20" data-team="growth">
-                                    <div class="flex items-start justify-between">
-                                        <span class="text-[9px] font-bold text-brand-growth uppercase tracking-wider">Growth</span>
-                                        <input type="checkbox" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
-                                    </div>
-                                    <p class="text-xs text-slate-700 font-medium mt-1">Triển khai Affiliate qua Agency</p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">Mở rộng tệp tiếp cận bằng tiếp thị liên kết</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+            </div>
         </div>
 
         <!-- SECTION: THÔNG TIN CHI TIẾT VỀ NHÂN SỰ PHÂN NHIỆM -->
@@ -506,15 +185,262 @@
         <p>© 2026 Toàn bộ quyền sở hữu trí tuệ kế hoạch dự án. Phát triển giao diện quản lý thông minh.</p>
     </footer>
 
-    <!-- INTERACTION LOGIC (SMART FUNCTIONALITIES) -->
+    <!-- INTERACTION LOGIC & DYNAMIC FETCH -->
     <script>
-        // Thiết lập ngày mục tiêu Launching (15/07/2026)
-        const launchDate = new Date('July 15, 2026 09:00:00').getTime();
+        // Cơ chế dữ liệu mặc định phòng khi file weekly-update.json bị lỗi hoặc không tìm thấy
+        const fallbackData = {
+            "launchDate": "2026-07-15T09:00:00",
+            "months": [
+                {
+                    "name": "Tháng 6",
+                    "themeColor": "from-emerald-500 to-teal-600",
+                    "badgeColor": "text-emerald-600 bg-emerald-50",
+                    "weeks": [
+                        {
+                            "id": "W1",
+                            "dates": "01/06 - 07/06",
+                            "tasks": [
+                                { "team": "foundation", "title": "Xác định Phạm vi MVP", "desc": "Legal check: TMĐT, khuyến mãi, bán sản phẩm vật lý.", "deadline": "" },
+                                { "team": "setup", "title": "IT action list theo requirement của 21.5", "desc": "Xây dựng Sitemap và cấu trúc trang web", "deadline": "04.06", "icon": "fa-solid fa-clock" }
+                            ]
+                        },
+                        {
+                            "id": "W2",
+                            "dates": "08/06 - 14/06",
+                            "tasks": [
+                                { "team": "foundation", "title": "Bộ khung sản phẩm phase 1 và phase 2.", "desc": "Danh sách tính năng front-end, back-end, admin portal và tracking requirement.", "deadline": "10.06" },
+                                { "team": "setup", "title": "UI/UX, prototype Figma & tài liệu", "desc": "Onboarding material, Customer Journey, FAQ, hướng dẫn mua hàng.", "deadline": "12.06" },
+                                { "team": "growth", "title": "Chốt ngân sách digital", "desc": "Phân bổ kênh O2O và định hướng lead generation phase 1.", "deadline": "" }
+                            ]
+                        },
+                        {
+                            "id": "W3",
+                            "dates": "15/06 - 21/06",
+                            "tasks": [
+                                { "team": "foundation", "title": "Bảng giá, mô hình khuyến mãi", "desc": "", "deadline": "" },
+                                { "team": "setup", "title": "Bắt đầu set up front-end và back-end", "desc": "Triển khai code khung hạ tầng", "deadline": "" },
+                                { "team": "growth", "title": "Chốt định hướng truyền thông", "desc": "Key message, vai trò kênh và kế hoạch truyền thông tổng thể.", "deadline": "" }
+                            ]
+                        },
+                        {
+                            "id": "W4",
+                            "dates": "22/06 - 28/06",
+                            "tasks": [
+                                { "team": "foundation", "title": "Service alignment O2O / Ops", "desc": "Quy trình kích hoạt quyền lợi, CLB tiếp nhận khách hàng online, booking.", "deadline": "" },
+                                { "team": "setup", "title": "Hoàn tất set up front-end và back-end", "desc": "Sẵn sàng để bàn giao môi trường test", "deadline": "" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Tháng 7",
+                    "themeColor": "from-blue-500 to-indigo-600",
+                    "badgeColor": "text-blue-600 bg-blue-50",
+                    "weeks": [
+                        {
+                            "id": "W1",
+                            "dates": "29/06 - 05/07",
+                            "tasks": [
+                                { "team": "setup", "title": "Test end-to-end flow", "desc": "Kiểm thử quy trình mua hàng đến kích hoạt quyền lợi", "deadline": "01.07", "icon": "fa-solid fa-circle-exclamation animate-pulse" },
+                                { "team": "growth", "title": "Teasing & Soft Launch Plan", "desc": "Chuẩn bị teasing plan, soft launch communication và training.", "deadline": "" }
+                            ]
+                        },
+                        {
+                            "id": "W2",
+                            "dates": "06/07 - 12/07",
+                            "tasks": [
+                                { "team": "foundation", "title": "Training tư vấn viên", "desc": "Đào tạo cho nhóm tư vấn viên online", "deadline": "" },
+                                { "team": "setup", "title": "Hoàn tất bug fixing, tracking final", "desc": "Nghiệm thu bug-fixing, tracking cuối và report dashboard", "deadline": "" },
+                                { "team": "growth", "title": "Teasing truyền thông", "desc": "Sẵn sàng các key asset trên các kênh owned channels.", "deadline": "" }
+                            ]
+                        },
+                        {
+                            "id": "W3",
+                            "dates": "13/07 - 19/07",
+                            "tasks": [
+                                { "team": "setup", "title": "Theo dõi hệ thống & kết nối API", "desc": "Payment, CRM sync, activation, booking & kết nối API Affiliate.", "deadline": "" },
+                                { "team": "growth", "title": "OFFICIAL LAUNCHING", "desc": "Theo dõi traffic, lead, order, conversion, bug và phản hồi khách hàng.", "deadline": "15/07", "icon": "fa-solid fa-rocket animate-bounce", "isHighlight": true }
+                            ]
+                        },
+                        {
+                            "id": "W4",
+                            "dates": "20/07 - 26/07",
+                            "tasks": [
+                                { "team": "setup", "title": "Tối ưu hóa sau vận hành", "desc": "Tối ưu bug minor, UX issue, tracking và report lỗi sau launch.", "deadline": "" },
+                                { "team": "growth", "title": "Launching affiliate qua agency", "desc": "Đẩy mạnh phát triển tiếp thị liên kết", "deadline": "" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
 
-        // 1. Đồng hồ đếm ngược thông minh
+        let currentActiveFilter = 'all';
+        let finalLaunchTime = new Date('July 15, 2026 09:00:00').getTime();
+
+        // 1. Tải dữ liệu từ tệp JSON
+        async function fetchProjectData() {
+            const badge = document.getElementById('data-source-badge');
+            try {
+                // Thử fetch dữ liệu tuần từ cùng folder
+                const response = await fetch('weekly-update.json');
+                if (!response.ok) throw new Error('Không thể tải tệp JSON');
+                
+                const data = await response.json();
+                
+                badge.className = "mb-6 px-4 py-2.5 rounded-xl text-xs font-medium border bg-emerald-50 border-emerald-200 text-emerald-800 flex items-center gap-2";
+                badge.innerHTML = `<i class="fa-solid fa-database text-emerald-500"></i> Dữ liệu được tải trực tuyến thành công từ tệp <code class="font-bold">weekly-update.json</code>`;
+                badge.classList.remove('hidden');
+                
+                renderTimeline(data);
+            } catch (err) {
+                // Cơ chế dự phòng fallback nếu thất bại
+                console.warn('Đang dùng nguồn dữ liệu dự phòng vì:', err.message);
+                
+                badge.className = "mb-6 px-4 py-2.5 rounded-xl text-xs font-medium border bg-amber-50 border-amber-200 text-amber-800 flex items-center gap-2";
+                badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Hiện đang dùng bộ dữ liệu dự phòng cục bộ (Chưa tìm thấy hoặc không thể đọc tệp <code class="font-bold">weekly-update.json</code> trên server của bạn).`;
+                badge.classList.remove('hidden');
+                
+                renderTimeline(fallbackData);
+            }
+        }
+
+        // 2. Kết xuất cây dòng thời gian ra giao diện HTML
+        function renderTimeline(data) {
+            // Cập nhật ngày mục tiêu countdown
+            if (data.launchDate) {
+                finalLaunchTime = new Date(data.launchDate).getTime();
+                const displayDate = new Date(data.launchDate);
+                document.getElementById('target-launch-label').innerText = displayDate.toLocaleDateString('vi-VN');
+            }
+
+            const container = document.getElementById('dynamic-timeline');
+            container.innerHTML = ''; // Xóa trạng thái đang tải
+
+            let globalTaskIndex = 0; // Để map chính xác ID checkbox phục vụ lưu trữ
+
+            data.months.forEach(month => {
+                // Tạo section tháng
+                const monthSection = document.createElement('section');
+                monthSection.className = 'relative';
+
+                let weeksHTML = '';
+
+                month.weeks.forEach(week => {
+                    let tasksHTML = '';
+
+                    week.tasks.forEach(task => {
+                        const isHighlight = task.isHighlight;
+                        const bgColors = isHighlight 
+                            ? 'bg-slate-800 border-l-4 border-rose-500 text-white'
+                            : {
+                                foundation: 'border-l-4 border-brand-foundation bg-emerald-50/20',
+                                setup: 'border-l-4 border-brand-setup bg-blue-50/20',
+                                growth: 'border-l-4 border-brand-growth bg-amber-50/20'
+                              }[task.team];
+
+                        const headingColor = isHighlight ? 'text-white' : 'text-slate-800';
+                        const badgeText = {
+                            foundation: 'Foundation',
+                            setup: 'Set Up',
+                            growth: 'Growth'
+                        }[task.team];
+
+                        const badgeColorClass = {
+                            foundation: 'text-brand-foundation',
+                            setup: 'text-brand-setup',
+                            growth: 'text-brand-growth'
+                        }[task.team];
+
+                        const deadlineHTML = task.deadline 
+                            ? `<div class="flex items-center gap-1 mt-1 text-[11px] ${isHighlight ? 'text-rose-400' : 'text-rose-600'} font-bold">
+                                 <i class="fa-solid ${isHighlight ? 'fa-rocket animate-bounce' : 'fa-clock'}"></i> DL: ${task.deadline}
+                               </div>` 
+                            : '';
+
+                        const iconHTML = task.icon ? `<i class="${task.icon} mr-1"></i>` : '';
+
+                        tasksHTML += `
+                            <div class="task-card p-3 rounded-xl ${bgColors}" data-team="${task.team}" data-global-idx="${globalTaskIndex}">
+                                <div class="flex items-start justify-between">
+                                    <span class="text-[9px] font-extrabold uppercase tracking-wider ${isHighlight ? 'text-rose-400' : badgeColorClass}">
+                                        ${badgeText}
+                                    </span>
+                                    <input type="checkbox" data-idx="${globalTaskIndex}" onclick="toggleTask(this)" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer mt-0.5">
+                                </div>
+                                ${deadlineHTML}
+                                <p class="text-xs ${isHighlight ? 'font-extrabold' : 'font-semibold'} ${headingColor} mt-1">${task.title}</p>
+                                ${task.desc ? `<p class="text-[11px] ${isHighlight ? 'text-slate-300' : 'text-slate-500'} mt-1">${iconHTML}${task.desc}</p>` : ''}
+                            </div>
+                        `;
+                        globalTaskIndex++;
+                    });
+
+                    const isLaunchWeek = week.tasks.some(t => t.isHighlight);
+                    const weekCardStyles = isLaunchWeek
+                        ? 'bg-slate-900 text-white border-2 border-indigo-500 shadow-xl shadow-indigo-500/10 p-5 flex flex-col justify-between transform lg:-translate-y-2 relative overflow-hidden'
+                        : 'bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-all flex flex-col justify-between';
+
+                    const weekHeaderGlow = isLaunchWeek 
+                        ? '<div class="absolute -top-12 -right-12 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl pointer-events-none"></div>'
+                        : '';
+
+                    const weekHeaderTag = isLaunchWeek 
+                        ? `<span class="text-[10px] text-indigo-300 font-extrabold uppercase tracking-widest bg-indigo-500/20 px-2 py-0.5 rounded">Tuần 3 - Go-Live!</span>`
+                        : `<span class="text-[10px] ${month.badgeColor} font-extrabold uppercase tracking-widest px-2 py-0.5 rounded">${week.id}</span>`;
+
+                    const weekIdBadge = isLaunchWeek
+                        ? `<span class="text-xs text-indigo-300 bg-indigo-500/20 px-2 py-1 rounded font-medium"><i class="fa-solid fa-star text-amber-400"></i> ${week.id}</span>`
+                        : `<span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded font-medium"><i class="fa-regular fa-calendar-days mr-1"></i>${week.id}</span>`;
+
+                    weeksHTML += `
+                        <div class="${weekCardStyles}">
+                            ${weekHeaderGlow}
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        ${weekHeaderTag}
+                                        <h3 class="font-bold ${isLaunchWeek ? 'text-white' : 'text-slate-800'} text-base mt-1">${week.dates}</h3>
+                                    </div>
+                                    ${weekIdBadge}
+                                </div>
+                                <div class="space-y-3">
+                                    ${tasksHTML}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                monthSection.innerHTML = `
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-gradient-to-r ${month.themeColor} text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                            ${month.name}
+                        </div>
+                        <div class="h-[1px] bg-slate-200 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        ${weeksHTML}
+                    </div>
+                `;
+
+                container.appendChild(monthSection);
+            });
+
+            // Khởi động lại các event sau khi vẽ cây DOM mới
+            updateCountdown();
+            loadCheckboxState();
+            
+            // Re-apply filter hiện tại nếu có
+            if (currentActiveFilter !== 'all') {
+                filterTasks(currentActiveFilter);
+            }
+        }
+
+        // 3. Đồng hồ đếm ngược thông minh
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = launchDate - now;
+            const distance = finalLaunchTime - now;
 
             if (distance < 0) {
                 document.getElementById('countdown').innerHTML = `<span class="text-emerald-500 font-bold text-xs uppercase tracking-wider"><i class="fa-solid fa-circle-check mr-1"></i>Đã ra mắt thành công!</span>`;
@@ -528,7 +454,7 @@
             document.getElementById('cd-hours').innerText = hours;
         }
 
-        // 2. Tính toán & Cập nhật thanh tiến độ dựa trên các checkbox công việc
+        // 4. Tính toán & Cập nhật thanh tiến độ dựa trên các checkbox công việc
         function updateProgressBar() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const total = checkboxes.length;
@@ -540,16 +466,13 @@
                 }
             });
 
-            // Tính tỷ lệ phần trăm
             const percent = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
             
-            // Cập nhật DOM
             document.getElementById('progress-percent').innerText = `${percent}%`;
             document.getElementById('progress-bar').style.width = `${percent}%`;
             document.getElementById('tasks-done').innerText = checkedCount;
             document.getElementById('tasks-total').innerText = total;
 
-            // Lưu trạng thái hoàn thành vào LocalStorage
             saveCheckboxState();
         }
 
@@ -564,26 +487,27 @@
             updateProgressBar();
         }
 
-        // Lưu dữ liệu vào trình duyệt
+        // Lưu trạng thái hoàn thành vào LocalStorage
         function saveCheckboxState() {
             const states = [];
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach((cb, idx) => {
+            checkboxes.forEach(cb => {
+                const idx = cb.getAttribute('data-idx');
                 states.push({ index: idx, checked: cb.checked });
             });
-            localStorage.setItem('stella_bell_roadmap_progress', JSON.stringify(states));
+            localStorage.setItem('stella_bell_roadmap_progress_v2', JSON.stringify(states));
         }
 
-        // Khôi phục dữ liệu từ trình duyệt
+        // Khôi phục trạng thái hoàn thành từ LocalStorage
         function loadCheckboxState() {
-            const saved = localStorage.getItem('stella_bell_roadmap_progress');
+            const saved = localStorage.getItem('stella_bell_roadmap_progress_v2');
             if (saved) {
                 const states = JSON.parse(saved);
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
                 states.forEach(state => {
-                    if (checkboxes[state.index]) {
-                        checkboxes[state.index].checked = state.checked;
-                        const parentCard = checkboxes[state.index].closest('.task-card');
+                    const cb = document.querySelector(`input[type="checkbox"][data-idx="${state.index}"]`);
+                    if (cb) {
+                        cb.checked = state.checked;
+                        const parentCard = cb.closest('.task-card');
                         if (state.checked) {
                             parentCard.classList.add('opacity-75');
                         }
@@ -593,8 +517,10 @@
             updateProgressBar();
         }
 
-        // 3. Bộ lọc thông minh theo phòng ban (Interactive Filter)
+        // 5. Bộ lọc thông minh theo phòng ban (Interactive Filter)
         function filterTasks(team) {
+            currentActiveFilter = team;
+            
             // Thay đổi style nút active
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
@@ -603,8 +529,10 @@
             });
 
             const activeBtn = document.getElementById(`btn-${team}`);
-            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-            activeBtn.classList.add('bg-slate-900', 'text-white', 'shadow-sm');
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+                activeBtn.classList.add('bg-slate-900', 'text-white', 'shadow-sm');
+            }
 
             // Ẩn/Hiện thẻ
             const cards = document.querySelectorAll('.task-card');
@@ -623,16 +551,15 @@
 
         // Khởi động khi load trang
         window.onload = function() {
-            // Chạy đồng hồ đếm ngược
-            updateCountdown();
-            setInterval(updateCountdown, 60000); // cập nhật mỗi phút
-
-            // Load tiến độ cũ
-            loadCheckboxState();
+            // Tải dữ liệu động từ JSON (hoặc fallback)
+            fetchProjectData();
             
             // Cập nhật mốc thời gian hệ thống thực tế
             const today = new Date();
             document.getElementById('system-time').innerHTML = `<i class="fa-regular fa-clock mr-1"></i>Trạng thái hoạt động: Tháng ${today.getMonth() + 1}/${today.getFullYear()}`;
+            
+            // Chạy đồng hồ đếm ngược mỗi phút
+            setInterval(updateCountdown, 60000);
         }
     </script>
 </body>
