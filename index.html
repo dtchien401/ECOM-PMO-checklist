@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ECOM PMO | Weekly Check-list</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --red:#d71920;
+      --dark:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --bg:#f7f8fb;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(215,25,32,.12), transparent 30%),
+        linear-gradient(180deg,#ffffff 0%,var(--bg) 42%,#eef1f6 100%);
+      color:var(--dark);
+    }
+    .glass{
+      background:rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
+      border:1px solid rgba(255,255,255,.65);
+      box-shadow:0 14px 36px rgba(17,24,39,.08);
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(17,24,39,.06);
+    }
+    .pill{border:1px solid var(--line); background:#fff}
+    .pill.active{background:#111827;color:#fff;border-color:#111827}
+    .ws-foundation{border-top-color:#d71920}
+    .ws-setup{border-top-color:#111827}
+    .ws-marketing{border-top-color:#64748b}
+    .task:hover{transform:translateY(-1px); box-shadow:0 14px 28px rgba(17,24,39,.09)}
+    .status-dot{width:9px;height:9px;border-radius:999px;display:inline-block}
+    .dot-now{background:#f59e0b}
+    .dot-upcoming{background:#94a3b8}
+    .dot-past{background:#ef4444}
+    .dot-done{background:#22c55e}
+    .dot-planned{background:#64748b}
+    .month-badge{letter-spacing:.16em}
+    details summary::-webkit-details-marker{display:none}
+  </style>
+</head>
+<body>
+  <div id="app" class="max-w-[1440px] mx-auto px-5 md:px-8 py-6 md:py-8"></div>
+
+  <script id="fallback-data" type="application/json">{
+  "project": "ECOM PMO",
+  "sheet": "Weekly Check-list",
+  "launchDate": "2026-07-15",
+  "generatedFrom": "ECOM PMO.xlsx",
+  "workstreams": [
+    {
+      "key": "foundation",
+      "name": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "col": "C"
+    },
+    {
+      "key": "setup",
+      "name": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "col": "D"
+    },
+    {
+      "key": "marketing",
+      "name": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "col": "E"
+    }
+  ],
+  "weeks": [
+    {
+      "id": "JUN-W1",
+      "month": "JUN",
+      "label": "W1 01/06 - 07/06",
+      "weekCode": "W1",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-07",
+      "sourceRow": 3
+    },
+    {
+      "id": "JUN-W2",
+      "month": "JUN",
+      "label": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "sourceRow": 4
+    },
+    {
+      "id": "JUN-W3",
+      "month": "JUN",
+      "label": "W3 15/06 - 21/06",
+      "weekCode": "W3",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-21",
+      "sourceRow": 5
+    },
+    {
+      "id": "JUN-W4",
+      "month": "JUN",
+      "label": "W4 22/06 - 28/06",
+      "weekCode": "W4",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-28",
+      "sourceRow": 6
+    },
+    {
+      "id": "JUL-W1",
+      "month": "JUL",
+      "label": "W1 29/06 - 05/07",
+      "weekCode": "W1",
+      "startDate": "2026-06-29",
+      "endDate": "2026-07-05",
+      "sourceRow": 7
+    },
+    {
+      "id": "JUL-W2",
+      "month": "JUL",
+      "label": "W2 06/07 - 12/07",
+      "weekCode": "W2",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-12",
+      "sourceRow": 8
+    },
+    {
+      "id": "JUL-W3",
+      "month": "JUL",
+      "label": "W3 13/07 - 19/07",
+      "weekCode": "W3",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-19",
+      "sourceRow": 9
+    },
+    {
+      "id": "JUL-W4",
+      "month": "JUL",
+      "label": "W4 20/07 - 26/07",
+      "weekCode": "W4",
+      "startDate": "2026-07-20",
+      "endDate": "2026-07-26",
+      "sourceRow": 10
+    }
+  ],
+  "tasks": [
+    {
+      "id": "JUN-W1-foundation-1",
+      "month": "JUN",
+      "weekId": "JUN-W1",
+      "weekLabel": "W1 01/06 - 07/06",
+      "weekCode": "W1",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-07",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Phạm vi MVP",
+      "sourceCell": "C3",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W1-foundation-2",
+      "month": "JUN",
+      "weekId": "JUN-W1",
+      "weekLabel": "W1 01/06 - 07/06",
+      "weekCode": "W1",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-07",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Legal check: thương mại điện tử, khuyến mãi, bán sản phẩm vật lý.",
+      "sourceCell": "C3",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W1-setup-1",
+      "month": "JUN",
+      "weekId": "JUN-W1",
+      "weekLabel": "W1 01/06 - 07/06",
+      "weekCode": "W1",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-07",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "4.6: IT action list theo requirement của 21.5",
+      "sourceCell": "D3",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W1-setup-2",
+      "month": "JUN",
+      "weekId": "JUN-W1",
+      "weekLabel": "W1 01/06 - 07/06",
+      "weekCode": "W1",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-07",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Sitemap và cấu trúc trang",
+      "sourceCell": "D3",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-foundation-1",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "10.6 Bộ khung sản phẩm phase 1 và phase 2.",
+      "sourceCell": "C4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-foundation-2",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Danh sách tính năng front-end, back-end, admin portal và tracking requirement.",
+      "sourceCell": "C4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-setup-1",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "12.6 UI/UX, prototype Figma, nội dung sản phẩm, FAQ, hướng dẫn mua hàng",
+      "sourceCell": "D4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-setup-2",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Onboarding material.",
+      "sourceCell": "D4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-setup-3",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Customer Journey,",
+      "sourceCell": "D4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W2-marketing-1",
+      "month": "JUN",
+      "weekId": "JUN-W2",
+      "weekLabel": "W2 08/06 - 14/06",
+      "weekCode": "W2",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Chốt ngân sách digital, phân bổ kênh O2O và định hướng lead generation phase 1.",
+      "sourceCell": "E4",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W3-foundation-1",
+      "month": "JUN",
+      "weekId": "JUN-W3",
+      "weekLabel": "W3 15/06 - 21/06",
+      "weekCode": "W3",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-21",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Bảng giá, mô hình khuyến mãi",
+      "sourceCell": "C5",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W3-setup-1",
+      "month": "JUN",
+      "weekId": "JUN-W3",
+      "weekLabel": "W3 15/06 - 21/06",
+      "weekCode": "W3",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-21",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Bắt đầu set up front-end và back-end",
+      "sourceCell": "D5",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W3-marketing-1",
+      "month": "JUN",
+      "weekId": "JUN-W3",
+      "weekLabel": "W3 15/06 - 21/06",
+      "weekCode": "W3",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-21",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Chốt communication direction, key message, channel role và kế hoạch truyền thông tổng thể",
+      "sourceCell": "E5",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W3-marketing-2",
+      "month": "JUN",
+      "weekId": "JUN-W3",
+      "weekLabel": "W3 15/06 - 21/06",
+      "weekCode": "W3",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-21",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "(under việc truyền thông thay đổi mô hình bán hàng)",
+      "sourceCell": "E5",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W4-foundation-1",
+      "month": "JUN",
+      "weekId": "JUN-W4",
+      "weekLabel": "W4 22/06 - 28/06",
+      "weekCode": "W4",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-28",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Service alignment O2O / Ops:",
+      "sourceCell": "C6",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W4-foundation-2",
+      "month": "JUN",
+      "weekId": "JUN-W4",
+      "weekLabel": "W4 22/06 - 28/06",
+      "weekCode": "W4",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-28",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "+ Quy trình kích hoạt quyền lợi",
+      "sourceCell": "C6",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W4-foundation-3",
+      "month": "JUN",
+      "weekId": "JUN-W4",
+      "weekLabel": "W4 22/06 - 28/06",
+      "weekCode": "W4",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-28",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "+ CLB tiếp nhận khách mua online, booking trên App / Kiosk và Online Service SOP",
+      "sourceCell": "C6",
+      "status": "Planned"
+    },
+    {
+      "id": "JUN-W4-setup-1",
+      "month": "JUN",
+      "weekId": "JUN-W4",
+      "weekLabel": "W4 22/06 - 28/06",
+      "weekCode": "W4",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-28",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Hoàn tất set up front-end & back-end",
+      "sourceCell": "D6",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W1-setup-1",
+      "month": "JUL",
+      "weekId": "JUL-W1",
+      "weekLabel": "W1 29/06 - 05/07",
+      "weekCode": "W1",
+      "startDate": "2026-06-29",
+      "endDate": "2026-07-05",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "1.7 Test end-to end flow",
+      "sourceCell": "D7",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W1-marketing-1",
+      "month": "JUL",
+      "weekId": "JUL-W1",
+      "weekLabel": "W1 29/06 - 05/07",
+      "weekCode": "W1",
+      "startDate": "2026-06-29",
+      "endDate": "2026-07-05",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Chuẩn bị teasing plan, soft launch communication plan và training đội Online Service.",
+      "sourceCell": "E7",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W2-foundation-1",
+      "month": "JUL",
+      "weekId": "JUL-W2",
+      "weekLabel": "W2 06/07 - 12/07",
+      "weekCode": "W2",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-12",
+      "workstream": "foundation",
+      "workstreamName": "Foundation",
+      "owner": "STELLA & BELL + A.HẢI",
+      "title": "Training cho nhóm tư vấn viên online",
+      "sourceCell": "C8",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W2-setup-1",
+      "month": "JUL",
+      "weekId": "JUL-W2",
+      "weekLabel": "W2 06/07 - 12/07",
+      "weekCode": "W2",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-12",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Hoàn tất bug fixing, tracking final, report dashboard",
+      "sourceCell": "D8",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W2-marketing-1",
+      "month": "JUL",
+      "weekId": "JUL-W2",
+      "weekLabel": "W2 06/07 - 12/07",
+      "weekCode": "W2",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-12",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Teasing truyền thông.",
+      "sourceCell": "E8",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W2-marketing-2",
+      "month": "JUL",
+      "weekId": "JUL-W2",
+      "weekLabel": "W2 06/07 - 12/07",
+      "weekCode": "W2",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-12",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Sẵn sàng các key asset truyèn thông trên owned channel",
+      "sourceCell": "E8",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W3-setup-1",
+      "month": "JUL",
+      "weekId": "JUL-W3",
+      "weekLabel": "W3 13/07 - 19/07",
+      "weekCode": "W3",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-19",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Theo dõi hệ thống, payment, CRM sync, activation, booking và report hằng ngày.",
+      "sourceCell": "D9",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W3-setup-2",
+      "month": "JUL",
+      "weekId": "JUL-W3",
+      "weekLabel": "W3 13/07 - 19/07",
+      "weekCode": "W3",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-19",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Kết nối API với các trang affiliate",
+      "sourceCell": "D9",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W3-marketing-1",
+      "month": "JUL",
+      "weekId": "JUL-W3",
+      "weekLabel": "W3 13/07 - 19/07",
+      "weekCode": "W3",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-19",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "15/07 Launching",
+      "sourceCell": "E9",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W3-marketing-2",
+      "month": "JUL",
+      "weekId": "JUL-W3",
+      "weekLabel": "W3 13/07 - 19/07",
+      "weekCode": "W3",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-19",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Theo dõi traffic, lead, order, payment, conversion, bug và customer feedback.",
+      "sourceCell": "E9",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W4-setup-1",
+      "month": "JUL",
+      "weekId": "JUL-W4",
+      "weekLabel": "W4 20/07 - 26/07",
+      "weekCode": "W4",
+      "startDate": "2026-07-20",
+      "endDate": "2026-07-26",
+      "workstream": "setup",
+      "workstreamName": "Set Up",
+      "owner": "BELL + A.HẢI + DS & MS + STELLA",
+      "title": "Tối ưu bug minor, UX issue, tracking issue và report issue sau launch.",
+      "sourceCell": "D10",
+      "status": "Planned"
+    },
+    {
+      "id": "JUL-W4-marketing-1",
+      "month": "JUL",
+      "weekId": "JUL-W4",
+      "weekLabel": "W4 20/07 - 26/07",
+      "weekCode": "W4",
+      "startDate": "2026-07-20",
+      "endDate": "2026-07-26",
+      "workstream": "marketing",
+      "workstreamName": "Marketing / Growth",
+      "owner": "THUỶ, NELLY, CƯỜNG",
+      "title": "Launching affiliate qua agency",
+      "sourceCell": "E10",
+      "status": "Planned"
+    }
+  ]
+}</script>
+
+  <script>
+    const TODAY = new Date();
+    const FALLBACK = JSON.parse(document.getElementById('fallback-data').textContent);
+    const state = {
+      data: FALLBACK,
+      filter: 'all',
+      week: 'all',
+      search: ''
+    };
+
+    const fmtDate = (iso) => {
+      if(!iso) return '';
+      const d = new Date(iso + 'T00:00:00');
+      return d.toLocaleDateString('vi-VN', {day:'2-digit', month:'2-digit'});
+    };
+
+    const daysLeft = (launchDate) => {
+      const launch = new Date(launchDate + 'T00:00:00');
+      const today = new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate());
+      return Math.ceil((launch - today) / (1000*60*60*24));
+    };
+
+    const derivedStatus = (task) => {
+      const manual = (task.status || '').toLowerCase();
+      if(['done','completed','complete'].includes(manual)) return {key:'done', label:'Done', dot:'dot-done'};
+      if(['blocked','blocker'].includes(manual)) return {key:'blocked', label:'Blocked', dot:'dot-past'};
+      const start = new Date(task.startDate + 'T00:00:00');
+      const end = new Date(task.endDate + 'T23:59:59');
+      if(TODAY >= start && TODAY <= end) return {key:'now', label:'This week', dot:'dot-now'};
+      if(TODAY > end) return {key:'past', label:'Review', dot:'dot-past'};
+      return {key:'upcoming', label:'Upcoming', dot:'dot-upcoming'};
+    };
+
+    const groupBy = (arr, keyFn) => arr.reduce((acc,x)=>{
+      const k = keyFn(x);
+      (acc[k] ||= []).push(x);
+      return acc;
+    }, {});
+
+    function loadData(){
+      fetch('data.json', {cache:'no-store'})
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(json => { state.data = json; render(); })
+        .catch(() => render());
+    }
+
+    function filteredTasks(){
+      let tasks = state.data.tasks || [];
+      if(state.filter !== 'all'){
+        if(['foundation','setup','marketing'].includes(state.filter)){
+          tasks = tasks.filter(t => t.workstream === state.filter);
+        }else{
+          tasks = tasks.filter(t => derivedStatus(t).key === state.filter);
+        }
+      }
+      if(state.week !== 'all'){
+        tasks = tasks.filter(t => t.weekId === state.week);
+      }
+      if(state.search.trim()){
+        const s = state.search.toLowerCase();
+        tasks = tasks.filter(t =>
+          [t.title, t.owner, t.weekLabel, t.workstreamName, t.sourceCell].join(' ').toLowerCase().includes(s)
+        );
+      }
+      return tasks;
+    }
+
+    function summary(tasks){
+      const byWS = groupBy(tasks, t=>t.workstream);
+      const total = tasks.length;
+      const now = tasks.filter(t=>derivedStatus(t).key==='now').length;
+      const past = tasks.filter(t=>derivedStatus(t).key==='past').length;
+      const upcoming = tasks.filter(t=>derivedStatus(t).key==='upcoming').length;
+      return {total, now, past, upcoming, byWS};
+    }
+
+    function taskCard(t){
+      const st = derivedStatus(t);
+      return `
+        <div class="task rounded-2xl border border-slate-200 bg-white p-4 transition duration-200">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="status-dot ${st.dot}"></span>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">${st.label}</span>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-400">${t.sourceCell || ''}</span>
+          </div>
+          <div class="text-[15px] leading-snug font-semibold text-slate-900">${escapeHtml(t.title || '')}</div>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="rounded-full bg-slate-100 px-2.5 py-1 font-semibold text-slate-700">${escapeHtml(t.weekLabel || '')}</span>
+            <span class="rounded-full bg-slate-100 px-2.5 py-1 text-slate-600">${fmtDate(t.startDate)} - ${fmtDate(t.endDate)}</span>
+          </div>
+          <div class="mt-3 text-xs text-slate-500">
+            Owner: <span class="font-semibold text-slate-700">${escapeHtml(t.owner || '')}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+    }
+
+    function render(){
+      const data = state.data;
+      const tasks = filteredTasks();
+      const sum = summary(data.tasks || []);
+      const launchLeft = daysLeft(data.launchDate);
+      const wsList = data.workstreams || [];
+
+      document.getElementById('app').innerHTML = `
+        <header class="glass rounded-[28px] px-6 md:px-8 py-7 mb-6">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
+            <div>
+              <div class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-3 py-1 mb-4">
+                <span class="w-2 h-2 rounded-full bg-[var(--red)]"></span>
+                <span class="text-xs font-bold uppercase tracking-[.22em] text-red-700">Weekly Check-list</span>
+              </div>
+              <h1 class="text-3xl md:text-5xl font-black tracking-tight">ECOM Launch PMO Dashboard</h1>
+              <p class="mt-3 text-slate-500 max-w-3xl">
+                Map trực tiếp từ sheet <b>${escapeHtml(data.sheet || '')}</b>. Mỗi task card giữ lại <b>source cell</b> để cross-check với Excel.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-slate-950 text-white p-5 min-w-[260px]">
+              <div class="text-xs uppercase tracking-[.18em] text-slate-400">Launch Target</div>
+              <div class="mt-1 text-3xl font-black">15/07/2026</div>
+              <div class="mt-2 text-sm text-slate-300">${launchLeft >= 0 ? `${launchLeft} days to launch` : `${Math.abs(launchLeft)} days after launch`}</div>
+            </div>
+          </div>
+        </header>
+
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          ${metricCard('Total Tasks', sum.total, 'Mapped from Excel cells')}
+          ${metricCard('This Week', sum.now, 'Current active week')}
+          ${metricCard('Review / Past', sum.past, 'Past week items')}
+          ${metricCard('Upcoming', sum.upcoming, 'Future week items')}
+        </section>
+
+        <section class="card rounded-[28px] p-4 md:p-5 mb-6">
+          <div class="flex flex-col xl:flex-row xl:items-center gap-3 justify-between">
+            <div class="flex flex-wrap gap-2">
+              ${filterBtn('all','All')}
+              ${filterBtn('foundation','Foundation')}
+              ${filterBtn('setup','Set Up')}
+              ${filterBtn('marketing','Marketing')}
+              ${filterBtn('now','This Week')}
+              ${filterBtn('upcoming','Upcoming')}
+              ${filterBtn('past','Review')}
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <select id="weekFilter" class="pill rounded-xl px-3 py-2 text-sm outline-none">
+                <option value="all">All weeks</option>
+                ${(data.weeks || []).map(w=>`<option value="${w.id}" ${state.week===w.id?'selected':''}>${w.month} ${w.label}</option>`).join('')}
+              </select>
+              <input id="searchBox" value="${escapeHtml(state.search)}" placeholder="Search task / owner / cell..." class="pill rounded-xl px-3 py-2 text-sm outline-none min-w-[240px]"/>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
+          ${wsList.map(ws => workstreamColumn(ws, tasks.filter(t=>t.workstream===ws.key))).join('')}
+        </section>
+
+        <section class="card rounded-[28px] p-5 md:p-6">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
+            <div>
+              <h2 class="text-xl font-black">Weekly Timeline Summary</h2>
+              <p class="text-sm text-slate-500">Timeline này lấy theo cột Week, không phải deadline chi tiết từng task.</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            ${(data.weeks || []).map(w => weekRow(w, (data.tasks || []).filter(t=>t.weekId===w.id))).join('')}
+          </div>
+        </section>
+      `;
+
+      document.querySelectorAll('[data-filter]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          state.filter = btn.dataset.filter;
+          render();
+        });
+      });
+      document.getElementById('weekFilter').addEventListener('change', e=>{
+        state.week = e.target.value;
+        render();
+      });
+      document.getElementById('searchBox').addEventListener('input', e=>{
+        state.search = e.target.value;
+        render();
+      });
+    }
+
+    function metricCard(label, value, note){
+      return `
+        <div class="card rounded-3xl p-5">
+          <div class="text-xs uppercase tracking-[.18em] text-slate-400 font-bold">${label}</div>
+          <div class="mt-2 text-4xl font-black">${value}</div>
+          <div class="mt-1 text-sm text-slate-500">${note}</div>
+        </div>
+      `;
+    }
+
+    function filterBtn(key,label){
+      const active = state.filter === key ? 'active' : '';
+      return `<button data-filter="${key}" class="pill ${active} rounded-xl px-4 py-2 text-sm font-bold transition">${label}</button>`;
+    }
+
+    function workstreamColumn(ws, tasks){
+      const cls = ws.key === 'foundation' ? 'ws-foundation' : ws.key === 'setup' ? 'ws-setup' : 'ws-marketing';
+      const grouped = groupBy(tasks, t=>t.weekId);
+      return `
+        <div class="card ${cls} rounded-[28px] border-t-4 p-4 md:p-5 min-h-[520px]">
+          <div class="mb-5">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="text-2xl font-black">${escapeHtml(ws.name)}</h2>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold">${tasks.length} tasks</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">${escapeHtml(ws.owner || '')}</p>
+          </div>
+
+          <div class="space-y-4">
+            ${tasks.length ? Object.keys(grouped).map(weekId => {
+              const weekTasks = grouped[weekId];
+              const first = weekTasks[0];
+              return `
+                <details open class="rounded-2xl bg-slate-50 border border-slate-200 p-3">
+                  <summary class="cursor-pointer flex items-center justify-between">
+                    <span class="font-black text-sm">${escapeHtml(first.month)} ${escapeHtml(first.weekLabel)}</span>
+                    <span class="text-xs font-bold text-slate-500">${weekTasks.length}</span>
+                  </summary>
+                  <div class="mt-3 space-y-3">
+                    ${weekTasks.map(taskCard).join('')}
+                  </div>
+                </details>
+              `;
+            }).join('') : `<div class="rounded-2xl bg-slate-50 border border-dashed border-slate-300 p-6 text-center text-slate-400">No tasks</div>`}
+          </div>
+        </div>
+      `;
+    }
+
+    function weekRow(w, tasks){
+      const byWs = groupBy(tasks, t=>t.workstream);
+      const now = tasks.filter(t=>derivedStatus(t).key==='now').length;
+      return `
+        <div class="rounded-2xl border border-slate-200 bg-white p-4">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <div class="text-xs font-black month-badge text-red-700">${escapeHtml(w.month || '')}</div>
+              <div class="font-black">${escapeHtml(w.label || '')}</div>
+              <div class="text-xs text-slate-500">${fmtDate(w.startDate)} - ${fmtDate(w.endDate)} · Source row ${w.sourceRow}</div>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">Foundation: ${(byWs.foundation||[]).length}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">Set Up: ${(byWs.setup||[]).length}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">MKT: ${(byWs.marketing||[]).length}</span>
+              ${now ? `<span class="rounded-full bg-amber-100 text-amber-800 px-3 py-1 font-bold">This week</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
