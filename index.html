@@ -657,17 +657,107 @@
       return acc;
     }, {});
 
+    function slugify(str){
+      return String(str || 'workstream')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g,'-')
+        .replace(/(^-|-$)/g,'') || 'workstream';
+    }
+
+    function monthNameFromNumber(mm){
+      return ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][Number(mm)-1] || '';
+    }
+
+    function isoFromDDMM(ddmm, fallbackYear=2026){
+      if(!ddmm) return '';
+      const m = String(ddmm).trim().match(/^(\d{1,2})[\/\-.](\d{1,2})(?:[\/\-.](\d{2,4}))?$/);
+      if(!m) return '';
+      const dd = String(m[1]).padStart(2,'0');
+      const mm = String(m[2]).padStart(2,'0');
+      let yy = m[3] ? String(m[3]) : String(fallbackYear);
+      if(yy.length === 2) yy = '20' + yy;
+      return `${yy}-${mm}-${dd}`;
+    }
+
+    function normalizeData(raw){
+      const base = raw || {};
+      const fallbackLaunch = base.launchDate || FALLBACK.launchDate || '2026-07-15';
+
+      // Schema 1: already in dashboard format
+      if(Array.isArray(base.weeks) && Array.isArray(base.workstreams) && Array.isArray(base.tasks) && base.tasks.some(t=>t.title || t.weekId)){
+        return {
+          ...base,
+          project: base.project || 'ECOM PMO',
+          sheet: base.sheet || base.sourceSheet || 'Weekly Check-list',
+          launchDate: fallbackLaunch
+        };
+      }
+
+      // Schema 2: flat Office Script JSON: { updatedAt, sourceSheet, tasks:[{week, weekStart, weekEnd, workstream, owner, task, status, note}] }
+      const rawTasks = Array.isArray(base.tasks) ? base.tasks : [];
+      const wsMap = new Map();
+      const weekMap = new Map();
+      const tasks = rawTasks.map((t, idx)=>{
+        const startDate = t.startDate || isoFromDDMM(t.weekStart || t.start || t.week_start);
+        const endDate = t.endDate || isoFromDDMM(t.weekEnd || t.end || t.week_end);
+        const month = (t.month && String(t.month).trim()) || monthNameFromNumber((startDate || '').slice(5,7));
+        const weekCode = t.weekCode || t.week || `W${idx+1}`;
+        const weekId = t.weekId || `${month || 'PERIOD'}-${weekCode}`.replace(/\s+/g,'-');
+        const weekLabel = t.weekLabel || `${weekCode} ${t.weekStart || fmtDate(startDate)} - ${t.weekEnd || fmtDate(endDate)}`;
+
+        const wsName = t.workstreamName || t.workstream || 'General';
+        const wsKey = t.workstreamKey || slugify(wsName);
+        if(!wsMap.has(wsKey)) wsMap.set(wsKey, {key:wsKey, name:wsName, owner:t.owner || '', col:t.sourceColumn || ''});
+        if(!weekMap.has(weekId)) weekMap.set(weekId, {id:weekId, month, label:weekLabel, weekCode, startDate, endDate, sourceRow:t.sourceRow || ''});
+
+        return {
+          ...t,
+          id: t.id || `${weekId}-${wsKey}-${idx+1}`,
+          month,
+          weekId,
+          weekLabel,
+          weekCode,
+          startDate,
+          endDate,
+          workstream: wsKey,
+          workstreamName: wsName,
+          owner: t.owner || '',
+          title: t.title || t.task || t.name || '',
+          sourceCell: t.sourceCell || '',
+          status: t.status || 'Planned',
+          note: t.note || ''
+        };
+      });
+
+      const weeks = Array.from(weekMap.values()).sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate)));
+      const workstreams = Array.from(wsMap.values());
+      return {
+        project: base.project || 'ECOM PMO',
+        sheet: base.sheet || base.sourceSheet || 'Weekly Check-list',
+        launchDate: fallbackLaunch,
+        generatedFrom: base.generatedFrom || 'weekly-update.json',
+        updatedAt: base.updatedAt || '',
+        totalTasks: tasks.length,
+        workstreams,
+        weeks,
+        tasks
+      };
+    }
+
     function loadData(){
+      state.data = normalizeData(state.data);
       fetch('weekly-update.json', {cache:'no-store'})
-        .then(r => r.ok ? r.json() : Promise.reject())
-        .then(json => { state.data = json; render(); })
+        .then(r => r.ok ? r.json() : Promise.reject(new Error('JSON not found')))
+        .then(json => { state.data = normalizeData(json); render(); })
         .catch(() => render());
     }
 
     function filteredTasks(){
       let tasks = state.data.tasks || [];
       if(state.filter !== 'all'){
-        if(['foundation','setup','marketing'].includes(state.filter)){
+        const wsKeys = (state.data.workstreams || []).map(ws => ws.key);
+        if(wsKeys.includes(state.filter)){
           tasks = tasks.filter(t => t.workstream === state.filter);
         }else{
           tasks = tasks.filter(t => derivedStatus(t).key === state.filter);
@@ -679,7 +769,7 @@
       if(state.search.trim()){
         const s = state.search.toLowerCase();
         tasks = tasks.filter(t =>
-          [t.title, t.owner, t.weekLabel, t.workstreamName, t.sourceCell].join(' ').toLowerCase().includes(s)
+          [t.title, t.task, t.owner, t.weekLabel, t.workstreamName, t.sourceCell, t.note].join(' ').toLowerCase().includes(s)
         );
       }
       return tasks;
@@ -727,6 +817,7 @@
     }
 
     function render(){
+      state.data = normalizeData(state.data);
       const data = state.data;
       const tasks = filteredTasks();
       const sum = summary(data.tasks || []);
@@ -748,7 +839,7 @@
             </div>
             <div class="rounded-3xl bg-slate-950 text-white p-5 min-w-[260px]">
               <div class="text-xs uppercase tracking-[.18em] text-slate-400">Launch Target</div>
-              <div class="mt-1 text-3xl font-black">15/07/2026</div>
+              <div class="mt-1 text-3xl font-black">${fmtDate(data.launchDate)}/2026</div>
               <div class="mt-2 text-sm text-slate-300">${launchLeft >= 0 ? `${launchLeft} days to launch` : `${Math.abs(launchLeft)} days after launch`}</div>
             </div>
           </div>
@@ -765,9 +856,7 @@
           <div class="flex flex-col xl:flex-row xl:items-center gap-3 justify-between">
             <div class="flex flex-wrap gap-2">
               ${filterBtn('all','All')}
-              ${filterBtn('foundation','Foundation')}
-              ${filterBtn('setup','Set Up')}
-              ${filterBtn('marketing','Marketing')}
+              ${wsList.map(ws => filterBtn(ws.key, ws.name)).join('')}
               ${filterBtn('now','This Week')}
               ${filterBtn('upcoming','Upcoming')}
               ${filterBtn('past','Review')}
@@ -1077,9 +1166,7 @@
               <div class="text-xs text-slate-500">${fmtDate(w.startDate)} - ${fmtDate(w.endDate)} · Source row ${w.sourceRow}</div>
             </div>
             <div class="flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">Foundation: ${(byWs.foundation||[]).length}</span>
-              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">Set Up: ${(byWs.setup||[]).length}</span>
-              <span class="rounded-full bg-slate-100 px-3 py-1 font-bold">MKT: ${(byWs.marketing||[]).length}</span>
+              ${(state.data.workstreams || []).map(ws => `<span class="rounded-full bg-slate-100 px-3 py-1 font-bold">${escapeHtml(ws.name)}: ${(byWs[ws.key]||[]).length}</span>`).join('')}
               ${now ? `<span class="rounded-full bg-amber-100 text-amber-800 px-3 py-1 font-bold">This week</span>` : ''}
             </div>
           </div>
