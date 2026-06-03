@@ -1,6 +1,6 @@
 {
   "launchDate": "2026-07-15T09:00:00",
-  "updatedAt": "2026-06-03T13:35:21.671Z",
+  "updatedAt": "2026-06-03T13:44:18.086Z",
   "sourceSheet": "Weekly Check-list",
   "months": [
     {
@@ -16,13 +16,13 @@
               "team": "foundation",
               "title": "Bộ khung sản phẩm phase 1 và phase 2.",
               "desc": "Danh sách tính năng front-end, back-end, admin portal và tracking requirement.",
-              "deadline": "10.6"
+              "deadline": "10.06"
             },
             {
               "team": "setup",
               "title": "UI/UX, prototype Figma, nội dung sản phẩm, FAQ, hướng dẫn mua hàng",
               "desc": "Onboarding material. Customer Journey,",
-              "deadline": "12.6"
+              "deadline": "12.06"
             },
             {
               "team": "growth",
@@ -89,15 +89,13 @@
               "team": "setup",
               "title": "Test end-to end flow",
               "desc": "",
-              "deadline": "1.7"
+              "deadline": "01.07"
             },
             {
               "team": "growth",
               "title": "Chuẩn bị teasing plan, soft launch communication plan và training đội Online Service.",
               "desc": "",
-              "deadline": "",
-              "icon": "fa-solid fa-rocket animate-bounce",
-              "isHighlight": true
+              "deadline": ""
             }
           ]
         },
@@ -153,9 +151,7 @@
               "team": "setup",
               "title": "Tối ưu bug minor, UX issue, tracking issue và report issue sau launch.",
               "desc": "",
-              "deadline": "",
-              "icon": "fa-solid fa-rocket animate-bounce",
-              "isHighlight": true
+              "deadline": ""
             },
             {
               "team": "growth",
